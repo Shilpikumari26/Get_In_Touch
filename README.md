@@ -31,65 +31,66 @@ contact-us/
 
 ---
 
-## ⚙️ How to Use
 
-1. **Clone the repository:**
+---
 
-```bash
-git clone https://github.com/YourUsername/contact-us.git
-cd contact-us
-Setup EmailJS:
+## 🛠 Features
 
+- Interactive form for Name, Email, Subject, and Message.
+- Selectable Subjects: General Query, Support, Feedback, Collaboration.
+- Sends secure emails using EmailJS, directly from the browser.
+- Works seamlessly on mobile and desktop devices.
+- Shows live status messages after submission.
+- No backend server required.
 
-Setup EmailJS:
+---
 
-Sign up at EmailJS
-.
+## ⚙️ Setup and Usage
 
-Create a service (e.g., Gmail).
+1. **Clone the repository**
+    ```
+    git clone https://github.com/YourUsername/contact-us.git
+    cd contact-us
+    ```
+2. **Set up EmailJS**
+    - Sign up at [EmailJS](https://www.emailjs.com/)
+    - Create an email service (like Gmail)
+    - Set up an email template with these variables:
+      - `{{from_name}}`
+      - `{{from_email}}`
+      - `{{subject}}`
+      - `{{message}}`
+    - Copy your Service ID, Template ID, and Public Key from the EmailJS dashboard.
 
-Create an email template with the following variables:
-{{from_name}}
-{{from_email}}
-{{subject}}
-{{message}}
-Copy your Service ID, Template ID, and Public Key.
+3. **Configure script.js**
+    - Open `script.js` and insert your credentials:
+      ```
+      emailjs.init("YOUR_PUBLIC_KEY");
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        from_name: ...,
+        from_email: ...,
+        subject: ...,
+        message: ...
+      });
+      ```
+4. **Test the form**
+    - Open `index.html` in your browser, fill in the form, and click Send Message.
 
-Configure script.js:
-emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+---
 
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-  event.preventDefault();
+## 📌 Notes
 
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-    from_name: document.getElementById("name").value,
-    from_email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value
-  })
-  .then(function() {
-    status.style.color = "green";
-    status.innerHTML = "✅ Message sent successfully!";
-  }, function(error) {
-    status.style.color = "red";
-    status.innerHTML = "❌ Failed to send. Check console.";
-    console.log("EmailJS error:", error);
-  });
-});
-Open index.html in a browser and test the form.
+- Ensure your EmailJS template matches the variable names used in the code.
+- Set your template as "HTML" in EmailJS for formatted emails.
+- Check your Spam folder for missing messages.
+- No backend is needed; everything is handled through client-side JavaScript.
 
-📌 Notes
+---
 
-Make sure the EmailJS template is set to HTML if you want formatted emails.
+## 📧 Contact
 
-Check Spam/Junk folder if emails don’t appear in Gmail.
+Questions or feedback? Email: [shilpi2612kumari@gmail.com](mailto:shilpi2612kumari@gmail.com)
 
-The form uses client-side JavaScript, so no backend server is required.
+Made by Shilpi Kumari
 
-📧 Contact
-
-For any questions or feedback, contact: your-email@example.com
-
-Made  by Shilpi Kumari
-
-"# Get_In_Touch" 
+---
